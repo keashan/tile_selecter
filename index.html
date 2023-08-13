@@ -121,7 +121,7 @@
                     url : folder,
                     success: function (data) {
                         $(data).find("a").attr("href", function (i, val) {
-                            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                            if( val.match(/\.(jpe?g|png|gif|jpg)$/) ) { 
                                 let img = document.querySelector("#image-container").appendChild(document.createElement("img"));
                                 img.src = val;
                                 img.className = "image";
