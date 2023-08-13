@@ -115,37 +115,63 @@
             function openFolder(tile) {
                 let fld = tile.getAttribute("id")
                 document.querySelector(".popup").style.display = "block";
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "static/images/" + fld, true);
-                xhr.responseType = 'document';
-                xhr.onload = () => {
-                  if (xhr.status === 200) {
-                    var elements = xhr.response.getElementsByTagName("a");
-                    for (x of elements) {
-                        console.log(x)
-                        if ( x.href.match(/\.(jpe?g|png|gif)$/) ) {
-                            let img = document.querySelector("#image-container").appendChild(document.createElement("img"));
-                            img.src = x.href;
-                            img.className = "image";
-                            let img1 = img.cloneNode(true);
-                            let img2 = img.cloneNode(true);
-                            let img3 = img.cloneNode(true);
-                            img.classList.add("top-crop")
-                            img1.classList.add("right-crop")
-                            img2.classList.add("bottom-crop")
-                            img3.classList.add("left-crop")
-                            document.querySelector("#image-container").appendChild(img);
-                            document.querySelector("#image-container").appendChild(img1);
-                            document.querySelector("#image-container").appendChild(img2);
-                            document.querySelector("#image-container").appendChild(img3);
-                      }
-                    };
-                  }
-                  else {
-                    alert('Request failed. Returned status of ' + xhr.status);
-                  }
-                }
-                xhr.send()
+                var folder = "static/images/" + fld + "/";
+
+                $.ajax({
+                    url : folder,
+                    success: function (data) {
+                        $(data).find("a").attr("href", function (i, val) {
+                            if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                                let img = document.querySelector("#image-container").appendChild(document.createElement("img"));
+                                img.src = val;
+                                img.className = "image";
+                                let img1 = img.cloneNode(true);
+                                let img2 = img.cloneNode(true);
+                                let img3 = img.cloneNode(true);
+                                img.classList.add("top-crop")
+                                img1.classList.add("right-crop")
+                                img2.classList.add("bottom-crop")
+                                img3.classList.add("left-crop")
+                                document.querySelector("#image-container").appendChild(img);
+                                document.querySelector("#image-container").appendChild(img1);
+                                document.querySelector("#image-container").appendChild(img2);
+                                document.querySelector("#image-container").appendChild(img3);
+                                // $("body").append( "<img src='"+ val +"'>" );
+                            } 
+                        });
+                    }
+                });
+                // var xhr = new XMLHttpRequest();
+                // xhr.open("GET", "static/images/" + fld, true);
+                // xhr.responseType = 'document';
+                // xhr.onload = () => {
+                //   if (xhr.status === 200) {
+                //     var elements = xhr.response.getElementsByTagName("a");
+                //     for (x of elements) {
+                //         console.log(x)
+                //         if ( x.href.match(/\.(jpe?g|png|gif)$/) ) {
+                //             let img = document.querySelector("#image-container").appendChild(document.createElement("img"));
+                //             img.src = x.href;
+                //             img.className = "image";
+                //             let img1 = img.cloneNode(true);
+                //             let img2 = img.cloneNode(true);
+                //             let img3 = img.cloneNode(true);
+                //             img.classList.add("top-crop")
+                //             img1.classList.add("right-crop")
+                //             img2.classList.add("bottom-crop")
+                //             img3.classList.add("left-crop")
+                //             document.querySelector("#image-container").appendChild(img);
+                //             document.querySelector("#image-container").appendChild(img1);
+                //             document.querySelector("#image-container").appendChild(img2);
+                //             document.querySelector("#image-container").appendChild(img3);
+                //       }
+                //     };
+                //   }
+                //   else {
+                //     alert('Request failed. Returned status of ' + xhr.status);
+                //   }
+                // }
+                // xhr.send()
 
             }
             function closeFolder() {
