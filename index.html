@@ -105,6 +105,35 @@
                 <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F05 NL.jpg" class="tile-image image5" alt="">
             </div>
         </div>
+        <div id="selected-tiles">
+            <div class="selected-tile tile1">
+                <div class="selected-tile-image"></div>
+            </div>
+            <div class="selected-tile tile2">
+                <div class="selected-tile-image"></div>
+            </div>
+            <div class="selected-tile tile3">
+                <div class="selected-tile-image"></div>
+            </div>
+            <div class="selected-tile tile4">
+                <div class="selected-tile-image"></div>
+            </div>
+            <div class="selected-tile tile5">
+                <div class="selected-tile-image"></div>
+            </div>
+            <div class="selected-tile tile6">
+                <div class="selected-tile-image"></div>
+            </div>
+            <div class="selected-tile tile7">
+                <div class="selected-tile-image"></div>
+            </div>
+            <div class="selected-tile tile8">
+                <div class="selected-tile-image"></div>
+            </div>
+            <div class="selected-tile tile9">
+                <div class="selected-tile-image"></div>
+            </div>
+        </div>
 
 
         <script>
@@ -118,26 +147,34 @@
                 document.querySelector(".popup").style.display = "block";
                 // var folder = "static/images/" + fld + "/";
                 let i = 1;
+                let s =padWithLeadingZeros(i, 2)
+                let n = "Field Tile CPRISB Dark Grey  12x12 F" + s;
+                let file = "static/images/" + fld + "/" + n + " NL.jpg";
 
-                let file = "static/images/" + fld + "/Field Tile CPRISB Dark Grey  12x12 F0" + i + " NL.jpg";
-
-                while (fileExists(file)) {
+                while (fileExists(file)==true) {
                     let img = document.querySelector("#image-container").appendChild(document.createElement("img"));
                     img.src = file;
                     img.className = "image";
+                    img.onclick=selectTile();
                     let img1 = img.cloneNode(true);
                     let img2 = img.cloneNode(true);
                     let img3 = img.cloneNode(true);
                     img.classList.add("top-crop")
+                    img.alt = n + "_top-crop"
                     img1.classList.add("right-crop")
+                    img1.alt = n + "_right-crop"
                     img2.classList.add("bottom-crop")
+                    img2.alt = n + "_bottom-crop"
                     img3.classList.add("left-crop")
+                    img3.alt = n + "_left-crop"
                     document.querySelector("#image-container").appendChild(img);
                     document.querySelector("#image-container").appendChild(img1);
                     document.querySelector("#image-container").appendChild(img2);
                     document.querySelector("#image-container").appendChild(img3);
                     i++;
-                    file = "static/images/" + fld + "/Field Tile CPRISB Dark Grey  12x12 F0" + i + " NL.jpg";
+                    s =padWithLeadingZeros(i, 2)
+                    n = "Field Tile CPRISB Dark Grey  12x12 F" + s;
+                    file = "static/images/" + fld + "/" + n + " NL.jpg";
                 }
                 function fileExists(url) {
                     if(url){
@@ -149,6 +186,52 @@
                         return false;
                     }
                 }
+                function padWithLeadingZeros(num, totalLength) {
+                    return String(num).padStart(totalLength, '0');
+                    }
+                
+                function selectTile(){
+                    document.querySelectorAll(".image").forEach(image => {
+                        image.onclick=()=>{
+                            let selected_tiles = document.querySelectorAll(".selected-tile-image");
+                            for (let i = 0; i < selected_tiles.length; i++) {
+                                if (selected_tiles[i].style.backgroundImage == "") {
+                                    selected_tiles[i].style.backgroundImage = "url(" + image.src + ")";
+                                    selected_tiles[i].classList.add(image.classList[1]);
+                                    selected_tiles[i].onclick=()=>{
+                                        selected_tiles[i].style.backgroundImage = "";
+                                        adjudtImages();
+                                    }
+                                    break;
+                                }
+                            }
+                            
+                        }
+                    })
+                }
+
+                function adjudtImages(){
+                    let selected_tiles = document.querySelectorAll(".selected-tile-image");
+                            for (let i = 0; i < selected_tiles.length-1; i++) {
+                                if (selected_tiles[i].style.backgroundImage == "") {
+                                    if (i < selected_tiles.length) {
+                                        selected_tiles[i].style.backgroundImage = selected_tiles[i+1].style.backgroundImage;
+                                        selected_tiles[i].classList.remove(selected_tiles[i].classList[1]);
+                                        if (selected_tiles[i+1].classList[1] != undefined){
+                                            selected_tiles[i].classList.add(selected_tiles[i+1].classList[1]);
+                                        }
+                                        
+                                        selected_tiles[i].onclick=()=>{
+                                            selected_tiles[i].style.backgroundImage = "";
+                                            adjudtImages();
+                                        }
+                                        selected_tiles[i+1].style.backgroundImage = "";
+                                        selected_tiles[i+1].classList.remove(selected_tiles[i+1].classList[1]);
+                                    }
+                                }
+                            }
+                }
+
                 // $.ajax({
                 //     url : folder,
                 //     success: function (data) {
