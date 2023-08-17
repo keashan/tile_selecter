@@ -134,6 +134,38 @@
                 <div class="selected-tile-image"></div>
             </div>
         </div>
+        <div class="tile-options">
+            <div class="first-color color-selection" id ="first-color-group">
+                <p>
+                    <label for="first-color">First Color</label>
+                </p>
+                <select name = "first-color" id="first-color">
+                    <option value="select">Select</option>
+                </select>
+                <p>
+                    <input type="text" id="first-color-percent" name="first-color-percent" value="50" class="color-percent">
+                    <label for="first-color-percent">%</label>
+                </p>
+            </div>
+            <div class="second-color color-selection" id ="second-color-group">
+                <p>
+                    <label for="second-color">Second Color</label>
+                </p>
+                <select name = "second-color" id="second-color" >
+                    <option value="select">Select</option>
+                </select>
+                <p>
+                    <input type="text" id="second-color-percent" name="second-color-percent" value="50" class="color-percent">
+                    <label for="second-color-percent">%</label>
+                </p>
+            </div>
+        </div>
+        <div class="slidecontainer">
+            <p>
+                <label for="colorSlider">Select Color Mix</label>
+            </p>
+            <input type="range" min="0" max="100" value="50" class="slider" id="colorSlider" oninput="sliderChange()">
+          </div>
 
 
         <script>
@@ -175,61 +207,6 @@
                     s =padWithLeadingZeros(i, 2)
                     n = "Field Tile CPRISB Dark Grey  12x12 F" + s;
                     file = "static/images/" + fld + "/" + n + " NL.jpg";
-                }
-                function fileExists(url) {
-                    if(url){
-                        var req = new XMLHttpRequest();
-                        req.open('GET', url, false);
-                        req.send();
-                        return req.status==200;
-                    } else {
-                        return false;
-                    }
-                }
-                function padWithLeadingZeros(num, totalLength) {
-                    return String(num).padStart(totalLength, '0');
-                    }
-                
-                function selectTile(){
-                    document.querySelectorAll(".image").forEach(image => {
-                        image.onclick=()=>{
-                            let selected_tiles = document.querySelectorAll(".selected-tile-image");
-                            for (let i = 0; i < selected_tiles.length; i++) {
-                                if (selected_tiles[i].style.backgroundImage == "") {
-                                    selected_tiles[i].style.backgroundImage = "url(" + image.src + ")";
-                                    selected_tiles[i].classList.add(image.classList[1]);
-                                    selected_tiles[i].onclick=()=>{
-                                        selected_tiles[i].style.backgroundImage = "";
-                                        adjudtImages();
-                                    }
-                                    break;
-                                }
-                            }
-                            
-                        }
-                    })
-                }
-
-                function adjudtImages(){
-                    let selected_tiles = document.querySelectorAll(".selected-tile-image");
-                            for (let i = 0; i < selected_tiles.length-1; i++) {
-                                if (selected_tiles[i].style.backgroundImage == "") {
-                                    if (i < selected_tiles.length) {
-                                        selected_tiles[i].style.backgroundImage = selected_tiles[i+1].style.backgroundImage;
-                                        selected_tiles[i].classList.remove(selected_tiles[i].classList[1]);
-                                        if (selected_tiles[i+1].classList[1] != undefined){
-                                            selected_tiles[i].classList.add(selected_tiles[i+1].classList[1]);
-                                        }
-                                        
-                                        selected_tiles[i].onclick=()=>{
-                                            selected_tiles[i].style.backgroundImage = "";
-                                            adjudtImages();
-                                        }
-                                        selected_tiles[i+1].style.backgroundImage = "";
-                                        selected_tiles[i+1].classList.remove(selected_tiles[i+1].classList[1]);
-                                    }
-                                }
-                            }
                 }
 
                 // $.ajax({
@@ -295,6 +272,87 @@
                 document.querySelector(".popup").style.display = "none";
             }
 
+            function fileExists(url) {
+                    if(url){
+                        var req = new XMLHttpRequest();
+                        req.open('GET', url, false);
+                        req.send();
+                        return req.status==200;
+                    } else {
+                        return false;
+                    }
+                }
+            function padWithLeadingZeros(num, totalLength) {
+                return String(num).padStart(totalLength, '0');
+            }
+                
+            function selectTile(){
+                document.querySelectorAll(".image").forEach(image => {
+                    image.onclick=()=>{
+                        let selected_tiles = document.querySelectorAll(".selected-tile-image");
+                        for (let i = 0; i < selected_tiles.length; i++) {
+                            if (selected_tiles[i].style.backgroundImage == "") {
+                                selected_tiles[i].style.backgroundImage = "url(" + image.src + ")";
+                                selected_tiles[i].classList.add(image.classList[1]);
+                                selected_tiles[i].onclick=()=>{
+                                    selected_tiles[i].style.backgroundImage = "";
+                                    adjudtImages();
+                                }
+                                break;
+                            }
+                        }
+                        
+                    }
+                })
+            }
+
+            function adjudtImages(){
+                let selected_tiles = document.querySelectorAll(".selected-tile-image");
+                        for (let i = 0; i < selected_tiles.length-1; i++) {
+                            if (selected_tiles[i].style.backgroundImage == "") {
+                                if (i < selected_tiles.length) {
+                                    selected_tiles[i].style.backgroundImage = selected_tiles[i+1].style.backgroundImage;
+                                    selected_tiles[i].classList.remove(selected_tiles[i].classList[1]);
+                                    if (selected_tiles[i+1].classList[1] != undefined){
+                                        selected_tiles[i].classList.add(selected_tiles[i+1].classList[1]);
+                                    }
+                                    
+                                    selected_tiles[i].onclick=()=>{
+                                        selected_tiles[i].style.backgroundImage = "";
+                                        adjudtImages();
+                                    }
+                                    selected_tiles[i+1].style.backgroundImage = "";
+                                    selected_tiles[i+1].classList.remove(selected_tiles[i+1].classList[1]);
+                                }
+                            }
+                        }
+            }
+
+            function sliderChange(){
+                let slider = document.getElementById("colorSlider");
+                let firstColor = document.getElementById("first-color-group");
+                let secondColor = document.getElementById("second-color-group");
+                console.log(slider.value)
+                console.log(slider.value.length)
+                document.getElementById("first-color-percent").value = slider.value //"<label for='first-color'>" + slider.value + "%</label>";
+                document.getElementById("second-color-percent").value = 100-parseInt(slider.value) //"<label for='second-color'>" + (100-parseInt(slider.value)) + "%</label>";
+
+            }
+            var firstColor = document.getElementById("first-color-percent");
+            var secondColor = document.getElementById("second-color-percent");
+            firstColor.addEventListener("change", textChange);
+            secondColor.addEventListener("change", textChange);
+            function textChange(e){
+                let slider = document.getElementById("colorSlider");
+                if (e.target.id=="first-color-percent"){
+                    slider.value = firstColor.value;
+                    secondColor.value = 100-parseInt(slider.value);
+                }
+                else{
+                    slider.value = 100-parseInt(secondColor.value);
+                    firstColor.value = slider.value;
+                }
+            }
 
 
         </script>

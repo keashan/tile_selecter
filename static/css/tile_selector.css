@@ -196,6 +196,46 @@ body {
     cursor: "pointer";
 }
 
+.tile-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.tile-options .color-selection{
+    margin: 10px;
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+}
+
+.tile-options .first-color{
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.tile-options .second-color{
+    text-align: left;
+    justify-content: flex-start;
+}
+
+.tile-options p{
+    margin: 10px;
+}
+
+.color-percent{
+    width: 40px;
+    text-align: center;
+    
+}
+
+.slider{
+    width: 50%;
+    margin: 10px;
+}
+
 @media only screen and (max-width: 950px) {
     .popup .popup-content .image{
         width: 20%;
