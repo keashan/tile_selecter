@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+        <title>Tile Selector</title>
+
+        <link rel="stylesheet" type="text/css" href="static/css/tile_selector.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1 class="title">Tile Selector</h1>
+        <div class="popup">
+            <span onclick="closeFolder()">&times</span>
+            <div class="popup-content">
+                <h2></h2>
+                <!-- <p>Tile Description</p> -->
+                <div id="image-container"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="color-folder">
+                <div class="tile" id="Field_Tile_CPRISB_Dark_Grey__12x12">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F01.jpg" class="tile-image image1" alt="">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F02.jpg" class="tile-image image2" alt="">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F03.jpg" class="tile-image image3" alt="">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F04.jpg" class="tile-image image4" alt="">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F05.jpg" class="tile-image image5" alt="">
+                </div>
+                <span  class="color-name">Dark Grey</span>
+                <input type="checkbox" id="Dark_Grey" name="Dark Grey" value="Dark Grey" class="color-checkbox" onchange="selectColor(this)">
+            </div>
+            <div class="color-folder">
+                <div class="tile" id="Ironstone_Antique_Slate_12x12">
+                    <img src="static/images/Ironstone_Antique_Slate_12x12/Ironstone Antique Slate 12x12 F01.jpg" class="tile-image image1" alt="">
+                    <img src="static/images/Ironstone_Antique_Slate_12x12/Ironstone Antique Slate 12x12 F02.jpg" class="tile-image image2" alt="">
+                    <img src="static/images/Ironstone_Antique_Slate_12x12/Ironstone Antique Slate 12x12 F03.jpg" class="tile-image image3" alt="">
+                    <img src="static/images/Ironstone_Antique_Slate_12x12/Ironstone Antique Slate 12x12 F04.jpg" class="tile-image image4" alt="">
+                    <img src="static/images/Ironstone_Antique_Slate_12x12/Ironstone Antique Slate 12x12 F05.jpg" class="tile-image image5" alt="">
+                </div>
+                <span  class="color-name">Antique Slate</span>
+                <input type="checkbox" id="Antique_Slate" name="Antique Slate" value="Antique Slate" class="color-checkbox" onchange="selectColor(this)">
+            </div>
+            <div class="color-folder">
+                <div class="tile" id="Ironstone_English_Grey_12x12">
+                    <img src="static/images/Ironstone_English_Grey_12x12/Ironstone English Grey 12x12 F01.jpg" class="tile-image image1" alt="">
+                    <img src="static/images/Ironstone_English_Grey_12x12/Ironstone English Grey 12x12 F02.jpg" class="tile-image image2" alt="">
+                    <img src="static/images/Ironstone_English_Grey_12x12/Ironstone English Grey 12x12 F03.jpg" class="tile-image image3" alt="">
+                    <img src="static/images/Ironstone_English_Grey_12x12/Ironstone English Grey 12x12 F04.jpg" class="tile-image image4" alt="">
+                    <img src="static/images/Ironstone_English_Grey_12x12/Ironstone English Grey 12x12 F05.jpg" class="tile-image image5" alt="">
+                </div>
+                <span  class="color-name">English Grey</span>
+                <input type="checkbox" id="English_Grey" name="English Grey" value="English Grey" class="color-checkbox" onchange="selectColor(this)">
+            </div>
+            <div class="color-folder">
+                <div class="tile" id="Ironstone_French_Blend">
+                    <img src="static/images/Ironstone_French_Blend/Ironstone French Blend F01.jpg" class="tile-image image1" alt="">
+                    <img src="static/images/Ironstone_French_Blend/Ironstone French Blend F02.jpg" class="tile-image image2" alt="">
+                    <img src="static/images/Ironstone_French_Blend/Ironstone French Blend F03.jpg" class="tile-image image3" alt="">
+                    <img src="static/images/Ironstone_French_Blend/Ironstone French Blend F04.jpg" class="tile-image image4" alt="">
+                    <img src="static/images/Ironstone_French_Blend/Ironstone French Blend F05.jpg" class="tile-image image5" alt="">
+                </div>
+                <span class="color-name">French Blend</span>
+                <input type="checkbox" id="French_Blend" name="French Blend" value="French Blend" class="color-checkbox" onchange="selectColor(this)">
+            </div>
+            <div class="color-folder">
+                <div class="tile" id="Field_Tile_CPRISB_Dark_Grey__12x12">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F01.jpg" class="tile-image image1" alt="">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F02.jpg" class="tile-image image2" alt="">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F03.jpg" class="tile-image image3" alt="">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F04.jpg" class="tile-image image4" alt="">
+                    <img src="static/images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F05.jpg" class="tile-image image5" alt="">
+                </div>
+                <span class="color-name">Sage Green</span>
+                <input type="checkbox" id="Sage_Green" name="Sage Green" value="Sage Green" class="color-checkbox" onchange="selectColor(this)">
+            </div>
+            
+
+        </div>
+        <div id="selected-tiles">
+            <div class="selected-tiles">
+                <div class="selected-tile tile1">
+                    <div class="selected-tile-image"></div>
+                </div>
+                <span class="selected-tile-color">&nbsp</span>
+                <p>
+                    <input type="text" id="first-color-percent" name="first-color-percent" value="50" class="color-percent">
+                    <label for="first-color-percent">%</label>
+                </p>
+            </div>
+            <div class="selected-tiles">
+                <div class="selected-tile tile2">
+                    <div class="selected-tile-image"></div>
+                </div>
+                <span class="selected-tile-color">&nbsp</span>
+                <p>
+                    <input type="text" id="second-color-percent" name="second-color-percent" value="50" class="color-percent">
+                    <label for="second-color-percent">%</label>
+                </p>
+            </div>
+        </div>
+        <!-- <div class="tile-options">
+            <div class="first-color color-selection" id ="first-color-group">
+                <p>
+                    <label for="first-color">First Color</label>
+                    <input type="text" id="first-color-percent" name="first-color-percent" value="50" class="color-percent">
+                    <label for="first-color-percent">%</label>
+                </p>
+            </div>
+            <div class="second-color color-selection" id ="second-color-group">
+                <p>
+                    <label for="second-color">Second Color</label>
+                    <input type="text" id="second-color-percent" name="second-color-percent" value="50" class="color-percent">
+                    <label for="second-color-percent">%</label>
+                </p>
+            </div>
+        </div> -->
+        <div class="slidecontainer">
+            <p>
+                <label for="colorSlider">Select Color Mix</label>
+            </p>
+            <input type="range" min="0" max="100" value="50" class="slider" id="colorSlider" oninput="sliderChange()">
+          </div>
+
+
+        <script>
+            let colorMatch = {
+                Field_Tile_CPRISB_Dark_Grey__12x12: "Dark Grey",
+                Ironstone_Antique_Slate_12x12: "Antique Slate",
+                Ironstone_English_Grey_12x12: "English Grey",
+                Ironstone_French_Blend: "French Blend",
+            }
+            document.querySelectorAll(".tile").forEach(tile => {
+                tile.onclick=()=>{
+                    openFolder(tile)
+                }
+            })
+            function openFolder(tile) {
+                let fld = tile.getAttribute("id")
+                // console.log(tile.parentElement.getElementsByTagName("span")[0].innerHTML);
+                let color = tile.parentElement.getElementsByTagName("span")[0].innerHTML;
+                document.querySelector(".popup-content h2").innerHTML = color;
+                document.querySelector(".popup").style.display = "block";
+                // var folder = "static/images/" + fld + "/";
+                let i = 1;
+                let s =padWithLeadingZeros(i, 2)
+                let n = "Field Tile CPRISB Dark Grey  12x12 F" + s;
+                let file = "static/images/" + fld + "/" + n + ".jpg";
+
+                while (fileExists(file)==true) {
+                    let img = document.querySelector("#image-container").appendChild(document.createElement("img"));
+                    img.src = file;
+                    img.className = "image";
+                    // img.onclick=selectTile();
+                    let img1 = img.cloneNode(true);
+                    let img2 = img.cloneNode(true);
+                    let img3 = img.cloneNode(true);
+                    img.classList.add("top-crop")
+                    img.alt = n + "_top-crop"
+                    img1.classList.add("right-crop")
+                    img1.alt = n + "_right-crop"
+                    img2.classList.add("bottom-crop")
+                    img2.alt = n + "_bottom-crop"
+                    img3.classList.add("left-crop")
+                    img3.alt = n + "_left-crop"
+                    document.querySelector("#image-container").appendChild(img);
+                    document.querySelector("#image-container").appendChild(img1);
+                    document.querySelector("#image-container").appendChild(img2);
+                    document.querySelector("#image-container").appendChild(img3);
+                    i++;
+                    s =padWithLeadingZeros(i, 2)
+                    n = "Field Tile CPRISB Dark Grey  12x12 F" + s;
+                    file = "static/images/" + fld + "/" + n + ".jpg";
+                }
+
+                // $.ajax({
+                //     url : folder,
+                //     success: function (data) {
+                //         $(data).find("a").attr("href", function (i, val) {
+                //             if( val.match(/\.(jpe?g|png|gif|jpg)$/) ) { 
+                //                 let img = document.querySelector("#image-container").appendChild(document.createElement("img"));
+                //                 img.src = val;
+                //                 img.className = "image";
+                //                 let img1 = img.cloneNode(true);
+                //                 let img2 = img.cloneNode(true);
+                //                 let img3 = img.cloneNode(true);
+                //                 img.classList.add("top-crop")
+                //                 img1.classList.add("right-crop")
+                //                 img2.classList.add("bottom-crop")
+                //                 img3.classList.add("left-crop")
+                //                 document.querySelector("#image-container").appendChild(img);
+                //                 document.querySelector("#image-container").appendChild(img1);
+                //                 document.querySelector("#image-container").appendChild(img2);
+                //                 document.querySelector("#image-container").appendChild(img3);
+                //                 // $("body").append( "<img src='"+ val +"'>" );
+                //             } 
+                //         });
+                //     }
+                // });
+                // // dsdsdsds
+                // var xhr = new XMLHttpRequest();
+                // xhr.open("GET", "static/images/" + fld, true);
+                // xhr.responseType = 'document';
+                // xhr.onload = () => {
+                //   if (xhr.status === 200) {
+                //     var elements = xhr.response.getElementsByTagName("a");
+                //     for (x of elements) {
+                //         console.log(x)
+                //         if ( x.href.match(/\.(jpe?g|png|gif)$/) ) {
+                //             let img = document.querySelector("#image-container").appendChild(document.createElement("img"));
+                //             img.src = x.href;
+                //             img.className = "image";
+                //             let img1 = img.cloneNode(true);
+                //             let img2 = img.cloneNode(true);
+                //             let img3 = img.cloneNode(true);
+                //             img.classList.add("top-crop")
+                //             img1.classList.add("right-crop")
+                //             img2.classList.add("bottom-crop")
+                //             img3.classList.add("left-crop")
+                //             document.querySelector("#image-container").appendChild(img);
+                //             document.querySelector("#image-container").appendChild(img1);
+                //             document.querySelector("#image-container").appendChild(img2);
+                //             document.querySelector("#image-container").appendChild(img3);
+                //       }
+                //     };
+                //   }
+                //   else {
+                //     alert('Request failed. Returned status of ' + xhr.status);
+                //   }
+                // }
+                // xhr.send()
+
+            }
+            function closeFolder() {
+                document.querySelector("#image-container").innerHTML = "";
+                document.querySelector(".popup").style.display = "none";
+            }
+
+            function fileExists(url) {
+                    if(url){
+                        var req = new XMLHttpRequest();
+                        req.open('GET', url, false);
+                        req.send();
+                        return req.status==200;
+                    } else {
+                        return false;
+                    }
+                }
+            function padWithLeadingZeros(num, totalLength) {
+                return String(num).padStart(totalLength, '0');
+            }
+                
+            function selectColor(chb){
+                let selected_tiles = document.querySelectorAll(".selected-tile-image");
+                if (chb.checked){
+                    let j = 0;
+                    for (let i = 0; i < selected_tiles.length; i++) {
+                        if (selected_tiles[i].style.backgroundImage == "") {
+                            selected_tiles[i].style.backgroundImage = "url('../static/images/9x9_Images/" + chb.value + ".jpg')";
+                            selected_tiles[i].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML = chb.value;
+                            // selected_tiles[i].classList.add(image.classList[1]);
+                            selected_tiles[i].onclick=()=>{
+                                selected_tiles[i].style.backgroundImage = "";
+                                let color = selected_tiles[i].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML;
+                                selected_tiles[i].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML =""
+                                adjudtImages(color);
+                            }
+                            break;
+                        }
+                        else{
+                            j++;
+                        }
+                    }
+                    if (j == selected_tiles.length){
+                        alert("You have selected all the tiles. Please deselect a tile to select a new one.")
+                        chb.checked = false;
+                    }
+                }
+                else{
+                    for (let i = 0; i < selected_tiles.length; i++) {
+                        if (selected_tiles[i].style.backgroundImage.replaceAll("\"","'") == "url('../static/images/9x9_Images/" + chb.value + ".jpg')") {
+                            selected_tiles[i].style.backgroundImage = "";
+                            let color = selected_tiles[i].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML;
+                            selected_tiles[i].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML ="&nbsp"
+                            
+                            adjudtImages(color);
+                            break;
+                        }
+                    }
+                }
+                        
+            }
+
+            function adjudtImages(color){
+                let selected_tiles = document.querySelectorAll(".selected-tile-image");
+                        for (let i = 0; i < selected_tiles.length-1; i++) {
+                            if (selected_tiles[i].style.backgroundImage == "") {
+                                if (i < selected_tiles.length) {
+                                    selected_tiles[i].style.backgroundImage = selected_tiles[i+1].style.backgroundImage;
+                                    selected_tiles[i].classList.remove(selected_tiles[i].classList[1]);
+                                    if (selected_tiles[i+1].classList[1] != undefined){
+                                        selected_tiles[i].classList.add(selected_tiles[i+1].classList[1]);
+                                    }
+                                    
+                                    // selected_tiles[i].onclick=()=>{
+                                    //     selected_tiles[i].style.backgroundImage = "";
+                                    //     adjudtImages();
+                                    // }
+                                    selected_tiles[i+1].style.backgroundImage = "";
+                                    document.getElementsByName(color)[0].checked = false;
+                                    selected_tiles[i].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML =selected_tiles[i+1].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML
+                                    selected_tiles[i+1].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML ="&nbsp"
+                                    selected_tiles[i+1].classList.remove(selected_tiles[i+1].classList[1]);
+                                    
+                                }
+                            }
+                        }
+            }
+
+            function sliderChange(){
+                let slider = document.getElementById("colorSlider");
+                let firstColor = document.getElementById("first-color-group");
+                let secondColor = document.getElementById("second-color-group");
+                console.log(slider.value)
+                console.log(slider.value.length)
+                document.getElementById("first-color-percent").value = slider.value //"<label for='first-color'>" + slider.value + "%</label>";
+                document.getElementById("second-color-percent").value = 100-parseInt(slider.value) //"<label for='second-color'>" + (100-parseInt(slider.value)) + "%</label>";
+
+            }
+            var firstColor = document.getElementById("first-color-percent");
+            var secondColor = document.getElementById("second-color-percent");
+            firstColor.addEventListener("change", textChange);
+            secondColor.addEventListener("change", textChange);
+            function textChange(e){
+                let slider = document.getElementById("colorSlider");
+                if (e.target.id=="first-color-percent"){
+                    slider.value = firstColor.value;
+                    secondColor.value = 100-parseInt(slider.value);
+                }
+                else{
+                    slider.value = 100-parseInt(secondColor.value);
+                    firstColor.value = slider.value;
+                }
+            }
+
+
+        </script>
+    </body>
+</html>
