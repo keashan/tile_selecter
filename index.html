@@ -292,7 +292,7 @@
                 DarkGrey: "Field_Tile_CPRISB_Dark_Grey__12x12",
                 AntiqueSlate: "Ironstone_Antique_Slate_12x12",
                 EnglishGrey: "Ironstone_English_Grey_12x12",
-                FrenchBlend: "Ironstone_French_BlendIronstone_French_Blend",
+                FrenchBlend: "Ironstone_French_Blend",
                 SageGreen: "Sage_Green_12x12",
             }
             let imageNames = {
@@ -427,6 +427,10 @@
                     s =padWithLeadingZeros(i, 2)
                     n = fld.replaceAll("_"," ") + " F" + s;
                     file = "static/images/" + fld + "/" + n + ".jpg";
+                    img = null;
+                    img1 = null;
+                    img2 = null;
+                    img3 = null;
                 }
 
                 
@@ -466,6 +470,7 @@
                                 adjustImages(color);
                             }
                             generateFinalImage()
+                            selected_tiles=null;
                             break;
                         }
                         else{
@@ -486,6 +491,7 @@
                             
                             adjustImages(color);
                             generateFinalImage()
+                            selected_tiles=null;
                             break;
                         }
                     }
@@ -495,37 +501,33 @@
 
             function adjustImages(color){
                 let selected_tiles = document.querySelectorAll(".selected-tile-image");
-                        for (let i = 0; i < selected_tiles.length-1; i++) {
-                            if (selected_tiles[i].style.backgroundImage == "") {
-                                if (i < selected_tiles.length) {
-                                    selected_tiles[i].style.backgroundImage = selected_tiles[i+1].style.backgroundImage;
-                                    selected_tiles[i].classList.remove(selected_tiles[i].classList[1]);
-                                    if (selected_tiles[i+1].classList[1] != undefined){
-                                        selected_tiles[i].classList.add(selected_tiles[i+1].classList[1]);
-                                    }
-                                    
-                                    // selected_tiles[i].onclick=()=>{
-                                    //     selected_tiles[i].style.backgroundImage = "";
-                                    //     adjudtImages();
-                                    // }
-                                    selected_tiles[i+1].style.backgroundImage = "";
-                                    document.getElementsByName(color)[0].checked = false;
-                                    selected_tiles[i].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML =selected_tiles[i+1].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML
-                                    selected_tiles[i+1].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML ="&nbsp"
-                                    selected_tiles[i+1].classList.remove(selected_tiles[i+1].classList[1]);
-                                    
-                                }
+                for (let i = 0; i < selected_tiles.length-1; i++) {
+                    if (selected_tiles[i].style.backgroundImage == "") {
+                        if (i < selected_tiles.length) {
+                            selected_tiles[i].style.backgroundImage = selected_tiles[i+1].style.backgroundImage;
+                            selected_tiles[i].classList.remove(selected_tiles[i].classList[1]);
+                            if (selected_tiles[i+1].classList[1] != undefined){
+                                selected_tiles[i].classList.add(selected_tiles[i+1].classList[1]);
                             }
+                            
+                            selected_tiles[i+1].style.backgroundImage = "";
+                            document.getElementsByName(color)[0].checked = false;
+                            selected_tiles[i].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML =selected_tiles[i+1].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML
+                            selected_tiles[i+1].parentElement.parentElement.getElementsByClassName("selected-tile-color")[0].innerHTML ="&nbsp"
+                            selected_tiles[i+1].classList.remove(selected_tiles[i+1].classList[1]);
+                            
                         }
+                    }
+                }
+                selected_tiles=null;
             }
 
             function sliderChange(){
                 let slider = document.getElementById("colorSlider");
-                // let firstColor = document.getElementById("first-color-group");
-                // let secondColor = document.getElementById("second-color-group");
                 document.getElementById("first-color-percent").value = slider.value //"<label for='first-color'>" + slider.value + "%</label>";
                 document.getElementById("second-color-percent").value = 100-parseInt(slider.value) //"<label for='second-color'>" + (100-parseInt(slider.value)) + "%</label>";
                 generateFinalImage();
+                slider=null;
             }
             var firstColor = document.getElementById("first-color-percent");
             var secondColor = document.getElementById("second-color-percent");
