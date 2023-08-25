@@ -470,7 +470,6 @@
                                 adjustImages(color);
                             }
                             generateFinalImage()
-                            selected_tiles=null;
                             break;
                         }
                         else{
@@ -481,6 +480,7 @@
                         alert("You have selected all the tiles. Please deselect a tile to select a new one.")
                         chb.checked = false;
                     }
+                    selected_tiles=null;
                 }
                 else{
                     for (let i = 0; i < selected_tiles.length; i++) {
