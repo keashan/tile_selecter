@@ -265,7 +265,8 @@ body {
     clip-path: inset(17.43% 0 0 0);
     /* background-image: url('../images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F01.jpg'); */
     /* background-size: cover; */
-    margin-top: -11.4px;
+    margin-top: -11.5px;
+    margin-right: -0.3px;
     background-size: 100% 100%;
 }
 .final-design  .final-design-row .half-left{
