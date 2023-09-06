@@ -49,10 +49,10 @@ body {
 }
 
 .tile-image{
-    width: 75px;
+    width: 95%;
 
-    height: 75px;
-    border: 1px solid lightgray;
+    height: 95%;
+    /* border: 1px solid lightgray; */
 
     /* Text */
     font-size: 35px;
