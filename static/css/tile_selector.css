@@ -155,21 +155,27 @@ body {
     /* border-radius: 10px; */
     /* flex: 0 0 10%; */
 }
+
 .top-crop{
     height: 100%;
-    clip-path: inset(17.43% 0 0 0);
+    /* clip-path: inset(17.43% 0 0 0); */
 }
 .right-crop{
     height: 100%;
-    clip-path: inset(0 17.43% 0 0);
+    /* clip-path: inset(0 17.43% 0 0); */
+    transform: rotate(270deg);
+    /* position: absolute; */
 }
 .bottom-crop{
     height: 100%;
-    clip-path: inset(0 0 17.43% 0);
+    /* clip-path: inset(0 0 17.43% 0); */
+    transform: rotate(180deg);
 }
 .left-crop{
     height: 100%;
-    clip-path: inset(0 0 0 17.43%);
+    /* clip-path: inset(0 0 0 17.43%); */
+    transform: rotate(90deg);
+    /* position: absolute; */
 }
 .selected-tiles{
     margin-top: 20px;
@@ -259,15 +265,19 @@ body {
     flex-wrap: wrap;
 }
 
-.final-design .final-design-row .final-design-tile{
-    height: 64.5px;
-    width: 64.5px;
-    clip-path: inset(17.43% 0 0 0);
+.final-design .final-design-row .final-design-tile-holder .final-design-tile{
+    /* clip-path: inset(17.43% 0 0 0); */
     /* background-image: url('../images/Field_Tile_CPRISB_Dark_Grey__12x12/Field Tile CPRISB Dark Grey  12x12 F01.jpg'); */
     /* background-size: cover; */
+    
+    background-size: 100% 100%;
+}
+.final-design .final-design-row .final-design-tile-holder{
+    height: 64.5px;
+    width: 64.5px;
     margin-top: -11.5px;
     margin-right: -0.3px;
-    background-size: 100% 100%;
+    clip-path: inset(17.43% 0 0 0); 
 }
 .final-design  .final-design-row .half-left{
     /* height: 100%; */
@@ -281,9 +291,7 @@ body {
     clip-path: inset(17.43% 50% 0 0);
 }
 
-.tile1{
-    /* background-image: url('../images/9x9 Images/Dark Grey.jpg'); */
-}
+
 
 @media only screen and (max-width: 950px) {
     .popup .popup-content .image{
