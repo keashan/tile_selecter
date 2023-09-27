@@ -263,6 +263,9 @@ body {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    /* margin-bottom: 40px; */
+    /* position: relative;
+    z-index: 100; */
 }
 
 .final-design .final-design-row .final-design-tile-holder .final-design-tile{
@@ -271,14 +274,22 @@ body {
     /* background-size: cover; */
     
     background-size: 100% 100%;
+    /* z-index: 100;
+    position: relative; */
+}
+.final-design .final-design-row .final-design-tile-holder .row-border{
+    background-color: rgb(37, 36, 36);
+    height: 10px;
+    z-index: 150;
+    position: relative;
+    margin-top: -4px;
 }
 .final-design .final-design-row .final-design-tile-holder{
-    height: 64.5px;
+    height: 67.5px;
     width: 64.5px;
-    margin-top: -11.5px;
+    margin-top: -12.5px;
     margin-right: -0.3px;
     clip-path: inset(17.43% 0 0 0);
-    border-bottom: 3px solid rgba(0,0,0,0.8);
 }
 .final-design  .final-design-row .half-left{
     /* height: 100%; */
