@@ -263,10 +263,6 @@ body {
     justify-content: center;
     flex-wrap: wrap;
 }
-.final-design{
-    
-    /* width: 752.5px; */
-}
 .final-design .final-design-row{
     display: flex;
     flex-direction: row;
@@ -281,23 +277,24 @@ body {
 }
 
 .final-design .final-design-row .final-design-tile-holder .final-design-tile{
-    background-size: 100% 100%;
+    background-size: 99% 99%;
 }
 .final-design .row-border{
     /* background-color: rgb(37, 36, 36); */
-    background-image: linear-gradient(black,rgb(37, 37, 37),transparent,transparent);
+    background-image: linear-gradient(black,transparent);
+    /* background-image: linear-gradient(black,rgb(16, 22, 49),transparent,transparent); */
     height: 12px;
     z-index: 150;
     position: relative;
     margin-top: -2px;
-    width: 834.25px;
+    width: 838.75px;
     margin-left: 32.25px;
 }
 .final-design .final-design-row .final-design-tile-holder{
     height: 67.5px;
     width: 64.5px;
     margin-top: -12.0px;
-    margin-right: -0.3px;
+    /* margin-right: -0.2px; */
     clip-path: inset(17.43% 0 0 0);
     position: relative;
 }
