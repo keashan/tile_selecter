@@ -281,8 +281,8 @@ body {
 }
 .final-design .row-border{
     /* background-color: rgb(37, 36, 36); */
-    background-image: linear-gradient(black,transparent);
-    /* background-image: linear-gradient(black,rgb(16, 22, 49),transparent,transparent); */
+    /* background-image: linear-gradient(black,transparent); */
+    background-image: linear-gradient(black,rgb(16, 22, 49),transparent,transparent);
     height: 12px;
     z-index: 150;
     position: relative;
