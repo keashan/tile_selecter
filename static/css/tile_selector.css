@@ -277,20 +277,28 @@ body {
 }
 
 .final-design .final-design-row .final-design-tile-holder .final-design-tile{
-    background-size: 96.5% 96.5%;
+    background-size: 96.0% 96.0%;
     /* background-size: 100% 100%; */
 }
 .final-design .row-border{
     /* background-color: rgb(37, 36, 36); */
     background-image: linear-gradient(black,transparent);
     /* background-image: linear-gradient(black,rgb(16, 22, 49),transparent,transparent); */
-    height: 12px;
+    height: 8px;
     z-index: 150;
     position: relative;
     margin-top: -2px;
     width: 835.75px;
+    /* width: 850px; */
     margin-left: 32.25px;
 }
+/* .final-design .row-border-s{
+    height: 8px;
+    background-image: linear-gradient(black,transparent);
+}
+.final-design .row-border-a{
+    background-image: linear-gradient(black,rgb(16, 22, 49),rgba(210, 210, 218, 0.205));
+} */
 .final-design .final-design-row .final-design-tile-holder{
     height: 64.5px;
     width: 64.5px;
