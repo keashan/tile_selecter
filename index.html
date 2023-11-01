@@ -439,7 +439,10 @@
                 
             }
             function addImages(url,tile, classList, crop){
-                let image = document.createElement("img");
+                let image = tile.getElementsByTagName("img")[0];
+                if (image == undefined || image == null || image == false){
+                    image = document.createElement("img");
+                }
                 image.classList.add("grid-image");
                 image.classList.add(crop);
                 image.src = url;
