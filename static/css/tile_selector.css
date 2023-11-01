@@ -156,27 +156,7 @@ body {
     /* flex: 0 0 10%; */
 }
 
-.top-crop{
-    height: 100%;
-    /* clip-path: inset(17.43% 0 0 0); */
-}
-.right-crop{
-    height: 100%;
-    /* clip-path: inset(0 17.43% 0 0); */
-    transform: rotate(270deg);
-    /* position: absolute; */
-}
-.bottom-crop{
-    height: 100%;
-    /* clip-path: inset(0 0 17.43% 0); */
-    transform: rotate(180deg);
-}
-.left-crop{
-    height: 100%;
-    /* clip-path: inset(0 0 0 17.43%); */
-    transform: rotate(90deg);
-    /* position: absolute; */
-}
+
 .selected-tiles{
     margin-top: 20px;
     display: flex;
@@ -272,54 +252,60 @@ body {
     position: relative;
     z-index: 100;
 }
+
+.final-design .row-border{
+    background-image: linear-gradient(black,transparent);
+    height: 8px;
+    z-index: 150;
+    position: relative;
+    margin-top: -4px;
+    width: 845px;
+}
+
 .final-design .move-up{
     margin-top: -7px;
 }
 
-.final-design .final-design-row .final-design-tile-holder .final-design-tile{
-    background-size: 96.0% 96.0%;
-    /* background-size: 100% 100%; */
-}
-.final-design .row-border{
-    /* background-color: rgb(37, 36, 36); */
-    background-image: linear-gradient(black,transparent);
-    /* background-image: linear-gradient(black,rgb(16, 22, 49),transparent,transparent); */
-    height: 8px;
-    z-index: 150;
-    position: relative;
-    margin-top: -2px;
-    width: 835.75px;
-    /* width: 850px; */
-    margin-left: 32.25px;
-}
-/* .final-design .row-border-s{
-    height: 8px;
-    background-image: linear-gradient(black,transparent);
-}
-.final-design .row-border-a{
-    background-image: linear-gradient(black,rgb(16, 22, 49),rgba(210, 210, 218, 0.205));
-} */
-.final-design .final-design-row .final-design-tile-holder{
-    height: 64.5px;
-    width: 64.5px;
-    margin-top: -12.0px;
-    margin-right: -0.2px;
-    clip-path: inset(17.43% 0 0 0);
-    position: relative;
-}
-.final-design  .final-design-row .half-left{
-    /* height: 100%; */
-    /* width: 64.5px; */
-    clip-path: inset(17.43% 0 0 50%);
-}
-
-.final-design  .final-design-row .half-right{
-    /* height: 100%; */
-    /* width: 64.5px; */
-    clip-path: inset(17.43% 50% 0 0);
-}
 
 
+.row-border{
+    visibility: hidden;
+}
+
+.grid-image{
+    max-width: 65px;
+    height: auto;
+    overflow: hidden;
+}
+
+.grid-image-container{
+    max-height: 53.25px;
+    width: 65px;
+    overflow: hidden;
+}
+
+img{
+    height: 65px;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.right-crop{
+    transform: rotate(90deg);
+}
+
+.bottom-crop{
+    transform: rotate(0deg);
+}
+
+.left-crop{
+    transform: rotate(-90deg);
+}
+
+.top-crop{
+    transform: rotate(180deg);
+}
 
 @media only screen and (max-width: 950px) {
     .popup .popup-content .image{
